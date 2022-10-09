@@ -1,0 +1,18 @@
+syntax = "proto3";
+option go_package = "./";
+
+// The book index search engine service definition.
+service BookIndex {
+    // Sends a greeting
+    rpc Search (SearchRequest) returns (stream SearchResult) {}
+}
+
+// The search request message. The client sends this to the server.
+message SearchRequest {
+    string query = 1;
+}
+
+// This will be the response message that gets streamed.
+message SearchResult {
+    string message = 1;
+}
